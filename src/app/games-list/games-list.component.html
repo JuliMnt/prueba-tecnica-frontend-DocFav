@@ -1,0 +1,67 @@
+<div class="buscador">
+  <input
+    class="input"
+    type="search"
+    [(ngModel)]="searchTerm"
+    (keyup)="onKeyUp($event)"
+    placeholder="Buscar..."
+  />
+
+  <select
+    #selectedGenre
+    class="form-select form-select-sm"
+    aria-label=".form-select-sm example"
+    (change)="onSelectChange(selectedGenre.value)"
+  >
+    <option value="default" selected>Seleccione el género</option>
+    <option
+      *ngFor="let genre of allSelects.genreSelect | async"
+      [value]="genre"
+    >
+      {{ genre }}
+    </option>
+  </select>
+  <select
+    #selectedPlatform
+    class="form-select form-select-sm"
+    aria-label=".form-select-sm example"
+    (change)="onSelectChange(selectedPlatform.value)"
+  >
+    <option value="default" selected>Seleccione la plataforma</option>
+    <option
+      *ngFor="let platform of allSelects.platformSelect | async"
+      [value]="platform"
+    >
+      {{ platform }}
+    </option>
+  </select>
+</div>
+<div *ngIf="showWarningMessage" class="warning-message">
+  Ingresa al menos 3 caracteres para realizar la búsqueda.
+</div>
+<div *ngIf="noResultsMessage" class="warning-message">
+  {{ noResultsMessage }}
+</div>
+
+<div class="container">
+  <div
+    class="d-flex justify-content-center text-center"
+    *ngFor="let game of filteredGames"
+  >
+    <div class="card text-center mb-3" style="width: 26rem;">
+      <img [src]="game.thumbnail" class="card-img-top" alt="" />
+      <div class="card-body">
+        <h5 class="card-title d-flex text-center">{{ game.title }}</h5>
+        <p class="card-text">{{ game.short_description }}</p>
+        <div class="footer mt-auto">
+          <a
+            [routerLink]="'detail/' + game.id"
+            target="_blank"
+            class="btn btn-primary"
+            >Ver más</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

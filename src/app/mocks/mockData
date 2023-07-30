@@ -1,0 +1,30 @@
+import { Games } from '../games';
+
+export const mockGames: Games[] = [
+  {
+    developer: 'Developer 1',
+    freetogame_profile_url: 'https://www.freetogame.com/profile/game1',
+    game_url: 'https://www.freetogame.com/game/game1',
+    genre: 'Action',
+    id: 1,
+    platform: 'PC',
+    publisher: 'Publisher 1',
+    release_date: '2023-01-01',
+    short_description: 'Short description of game 1',
+    thumbnail: 'https://www.freetogame.com/thumbnails/game1.jpg',
+    title: 'Game 1',
+  },
+];
+// {
+//   developer: 'Developer 2',
+//   freetogame_profile_url: 'https://www.freetogame.com/profile/game2',
+//   game_url: 'https://www.freetogame.com/game/game2',
+//   genre: 'RPG',
+//   id: 2,
+//   platform: 'PC',
+//   publisher: 'Publisher 2',
+//   release_date: '2023-02-15',
+//   short_description: 'Short description of game 2',
+//   thumbnail: 'https://www.freetogame.com/thumbnails/game2.jpg',
+//   title: 'Game 2',
+// },
